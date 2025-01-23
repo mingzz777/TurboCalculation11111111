@@ -1,0 +1,92 @@
+/* General Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cde7f4; /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for Form */
+form {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px 20px;
+    text-align: center;
+    width: 300px;
+}
+
+/* TurboCalculation Logo */
+h1 {
+    color: #e83535; /* Red for "Turbo" */
+    font-size: 24px;
+    margin: 0;
+}
+
+h1 span {
+    color: #0072bc; /* Blue for "Calculation" */
+}
+
+/* Subheading under Logo */
+h2 {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Buttons */
+button {
+    background-color: #7cb9e8; /* Sky blue button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #589dc6; /* Darker blue hover effect */
+}
+
+/* Links */
+a {
+    color: #0072bc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Success Message (after login) */
+.success-message {
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+}
+
+.success-message img {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+    display: block;
+}
