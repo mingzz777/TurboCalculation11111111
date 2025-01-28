@@ -1,30 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <form>
-        <h1>Turbo<span>Calculation</span></h1>
-        <h2>สร้างบัญชีผู้ใช้</h2>
+<form id="registerForm">
+  <input type="email" id="email" placeholder="Email" required />
+  <input type="text" id="name" placeholder="Name" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <button type="submit">Register</button>
+</form>
 
-        <label for="email">อีเมลล์</label>
-        <input type="email" id="email" placeholder="กรอกอีเมลล์" required>
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const password = document.getElementById('password').value;
 
-        <label for="name">ชื่อ</label>
-        <input type="text" id="name" placeholder="กรอกชื่อ" required>
+    const response = await fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name, password }),
+    });
 
-        <label for="password">รหัสผ่าน</label>
-        <input type="password" id="password" placeholder="กรอกรหัสผ่าน" required>
+    const message = await response.text();
+    alert(message);
+  });
+</script>
+<form id="registerForm">
+  <input type="email" id="email" placeholder="Email" required />
+  <input type="text" id="name" placeholder="Name" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <button type="submit">Register</button>
+</form>
 
-        <label for="confirm-password">ยืนยันรหัสผ่าน</label>
-        <input type="password" id="confirm-password" placeholder="ยืนยันรหัสผ่าน" required>
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const password = document.getElementById('password').value;
 
-        <button type="submit">สมัครใช้งาน</button>
-        
-        <p>มีบัญชีผู้ใช้อยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
-    </form>
-</body>
-</html>
+    const response = await fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name, password }),
+    });
+
+    const message = await response.text();
+    alert(message);
+  });
+</script>
