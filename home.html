@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbo Calculation - หน้าแรก</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@200;700&display=swap');
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      text-align: center;
+      background-color: #b3ddf5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 350px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 24px;
+    }
+
+    .turbo {
+      color: #ff4081;
+      font-weight: 700;
+    }
+
+    .calculation {
+      color: #3ab5ff;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 200;
+    }
+
+    .start-button {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 700;
+      color: black;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(to right, #00c3ff, #ffff1c);
+      transition: 0.3s;
+    }
+
+    .start-button:hover {
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="logo">
+      <span class="turbo">Turbo</span>
+      <span class="calculation">Calculation</span>
+    </h1>
+
+    <p>เรามาเริ่มฝึกทำโจทย์กัน</p>
+
+    <button class="start-button" onclick="startGame()">เริ่ม</button>
+  </div>
+
+  <script>
+    function startGame() {
+      window.location.href = "math.html"; // Change this to the actual game page
+    }
+  </script>
+
+</body>
+</html>
