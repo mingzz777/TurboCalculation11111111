@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Game</title>
+    <style>
+        body { font-family: 'TH Sarabun New', sans-serif; text-align: center; background-color: #b3e0ff; }
+        .container { background: white; padding: 20px; margin: 50px auto; width: 300px; border-radius: 10px; }
+        button { font-size: 20px; padding: 10px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="question">Loading...</h2>
+        <input type="number" id="answer" placeholder="พิมพ์คำตอบของคุณ">
+        <button onclick="checkAnswer()">ยืนยัน</button>
+        <p id="feedback"></p>
+        <p>คะแนน: <span id="score">0</span></p>
+    </div>
+    
+    <script>
+        let currentQuestion = 0;
+        let score = 0;
+        let questions = [];
+        let level = 1; // Change this based on selected level
+        let operation = '+'; // Change this based on selected operation
+
+        function generateQuestions() {
+            for (let i = 0; i < 100; i++) {
+                let num1 = Math.floor(Math.random() * (10 * level)) + 1;
+                let num2 = Math.floor(Math.random() * (10 * level)) + 1;
+                let answer;
+                if (operation === '+') answer = num1 + num2;
+                if (operation === '-') answer = num1 - num2;
+                if (operation === '*') answer = num1 * num2;
+                if (operation === '/') {
+                    num1 = num1 * num2; // Ensure divisible
+                    answer = num1 / num2;
+                }
+                questions.push({ num1, num2, answer });
+            }
+        }
+
+        function loadQuestion() {
+            if (currentQuestion >= 10) {
+                alert("จบเกม! คะแนนของคุณ: " + score);
+                location.reload();
+                return;
+            }
+            let q = questions[currentQuestion];
+            document.getElementById("question").innerText = `${q.num1} ${operation} ${q.num2} = ?`;
+        }
+
+        function checkAnswer() {
+            let userAnswer = parseInt(document.getElementById("answer").value);
+            let correctAnswer = questions[currentQuestion].answer;
+            if (userAnswer === correctAnswer) {
+                score += 10;
+                document.getElementById("feedback").innerText = "ถูกต้อง!";
+            } else {
+                document.getElementById("feedback").innerText = "ผิด ลองอีกครั้ง";
+            }
+            document.getElementById("score").innerText = score;
+            currentQuestion++;
+            loadQuestion();
+        }
+
+        generateQuestions();
+        loadQuestion();
+    </script>
+</body>
+</html>
