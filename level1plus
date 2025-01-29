@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบบวกเลข</title>
+    <script>
+        let questions = [];
+        let score = 0;
+
+        function generateQuestions() {
+            const quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = ""; // ล้างเนื้อหาก่อนสร้างใหม่
+            questions = [];
+
+            for (let i = 0; i < 10; i++) {
+                let num1 = Math.floor(Math.random() * 10);
+                let num2 = Math.floor(Math.random() * 10);
+                let answer = num1 + num2;
+                questions.push({ num1, num2, answer });
+
+                quizContainer.innerHTML += `
+                    <p>${i + 1}. ${num1} + ${num2} = 
+                    <input type="number" id="answer${i}" /></p>
+                `;
+            }
+        }
+
+        function checkAnswers() {
+            score = 0;
+            let resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = "";
+
+            for (let i = 0; i < 10; i++) {
+                let userAnswer = document.getElementById(`answer${i}`).value;
+                let correctAnswer = questions[i].answer;
+
+                if (parseInt(userAnswer) === correctAnswer) {
+                    score += 10;
+                } else {
+                    resultContainer.innerHTML += `<p>❌ ข้อที่ ${i + 1}: ${questions[i].num1} + ${questions[i].num2} = ${correctAnswer} (คำตอบของคุณ: ${userAnswer})</p>`;
+                }
+            }
+
+            resultContainer.innerHTML += `<h3>คะแนนรวม: ${score} / 100</h3>`;
+        }
+
+        window.onload = generateQuestions;
+    </script>
+</head>
+<body>
+    <h2>แบบทดสอบบวกเลข (10 ข้อ)</h2>
+    <div id="quiz"></div>
+    <button onclick="checkAnswers()">ส่งคำตอบ</button>
+    <div id="result"></div>
+</body>
+</html>
